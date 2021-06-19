@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "_Layout";
+}
+<main class="container" style="margin-top:70px">
+    <div id="notification" class="container">
+        <span class="fa fa-calendar"></span>
+        文章的评论已截屏保存，飞哥加油被涛咆哮赞，获得帮帮点 奖励2点
+        <a href="723.html" style="float:right; color:#337ab7"><span class=" fa fa-hand-o-right "></span>全部消息</a>
+    </div>
+    <div style="font-size:35px;margin:25px 0 15px 0">
+        @RenderSection("headline")
+    </div><hr />
+    <div class="row" style="margin:30px 0px">
+        <article class="col-md-5 ">
+            @RenderBody()
+        </article>
+
+        <aside class="col-md-6 offset-md-1">
+            <div class="text-info" style="font-size:30px;margin-bottom:20px">
+                <span class="fa fa-question-circle"></span>
+                <span>说明</span>
+            </div>
+            @RenderSection("Explain")
+        </aside>
+    </div>
+</main>
