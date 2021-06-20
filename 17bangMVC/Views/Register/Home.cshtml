@@ -1,0 +1,59 @@
+﻿@model _17bangMVC.Models.RegisterModel
+@{
+    Layout = "~/Views/Shared/Layout/_Dual.cshtml";
+    ViewBag.Title = "注册";
+}
+@section headline{
+    <span class="fa fa-registered"></span>
+    <span>注册</span>
+}
+<form method="post" asp-page="~/Home">
+    <div class="list-group-item list-group-item-warning" id="reward">
+        <p><a href="#" class="pull-right"><span class="fa fa-question-circle"></span>为什么需要邀请</a></p>
+        <div style="clear:both">
+            <label><b>邀请人：（*必填，没有邀请人）</b></label>
+            <input asp-for="NewUser.InvitedBy.Name" class="alert form-control" placeholder="他的用户名，模糊查询只能从头开始名">
+            <label><b>邀请码：（*必填）</b></label><br />
+            <input asp-for="NewUser.InvitedBy.InviteCode" class="alert  form-control" placeholder="4位数字">
+            <span asp-validation-for="NewUser.InvitedBy.InviteCode"></span>
+        </div>
+    </div>
+    <div style="margin-top:20px">
+        <div>
+            <label><b>用户名：（*必填）</b></label><br />
+            <input asp-for="NewUser.Name" class="alert alert-primary form-control" placeholder="登录用户名，可修改，不能重复" />
+            <span asp-validation-for="NewUser.Name"></span>
+        </div>
+        <div>
+            <label><b>密码：（*必填）</b></label><br />
+            <input asp-for="NewUser.Password" class="alert alert-primary form-control" role="alert" placeholder="不少于4个字符" />
+            <span asp-validation-for="NewUser.Password"></span>
+        </div>
+        <div>
+            <label><b>验证密码：（*必填）</b></label><br />
+            <input asp-for="ConfirmPassword" class="form-control" id="formGroupExampleInput" placeholder="和密码相同">
+            <span asp-validation-for="ConfirmPassword"></span>
+        </div>
+        <div style="margin-top:20px">
+            <label><b>验证码：（*必填）</b></label><br />
+            <input type="button" class="btn btn-outline-secondary " style="width:100px" />点击输入框显示
+        </div>
+    </div>
+    <div style="margin-top:15px">
+        <input class="btn btn-primary" style="background-color: #337ab7" value="提交" type="submit">
+        <input type="reset" value="重置" class="btn btn-outline-info">
+        <span style="float:right"><a href="~/Log/On"><span class="fa fa-sign-in"></span>登录</a></span>
+    </div>
+</form>
+@section Explain{
+        <ol>
+            <li><p>我们希望通过<a href="Article.html">一起帮</a>，能直接解决大家在电脑操作/软件使用/编程学习等方面的具体问题。</p></li>
+            <li> <p>现在互联网远程技术（比如QQ桌面共享）已经非常成熟，当我们再遇到上述问题，如果别人能直接远程给予帮助，岂不是好？</p></li>
+            <li><p>当然，你也可以在你熟悉的领域去帮助别人。由此而形成我们这个“你帮他他帮我我帮你，大家一起帮”的网上互助社区平台。</p></li>
+            <li><p>公平起见，我们还引入了 帮帮点/币/豆 三级概念，以记录和衡量社区成员的收获和贡献。</p></li>
+            <li> <p>赶快加入我们，赚取帮帮币吧！</p></li>
+            <li> <p><a href="Register.html"><span class=" fa fa-hand-o-right "></span>了解更多</a></p></li>
+        </ol>
+    }
+
+@*@Model.Name*@
