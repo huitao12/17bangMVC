@@ -19,5 +19,16 @@ namespace _17bangMVC.Controllers
             };
             return View(model);
         }
+
+        [HttpPost]
+        public ActionResult On(int? id ,string name, LogModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+
+            }
+            return View();
+        }
     }
 }

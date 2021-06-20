@@ -11,6 +11,7 @@ namespace _17bangMVC.Models
         [Required(ErrorMessage = "*用户名不能为空")]
         public string Name { get; set; }
 
+        [Required(ErrorMessage = "*用户名不能为空")]
         [MinLength(4, ErrorMessage = "*密码的长度不能小于4，大于20")]
         [DataType(DataType.Password)]
         public string Password { get; set; }

@@ -21,6 +21,10 @@ namespace _17bangMVC.Controllers
         [HttpPost]
         public ActionResult Home(RegisterModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
             return View();
         }
     }

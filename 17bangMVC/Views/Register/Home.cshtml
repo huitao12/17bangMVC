@@ -7,27 +7,47 @@
     <span class="fa fa-registered"></span>
     <span>注册</span>
 }
+<style>
+    .field-validation-error {
+        color: red;
+        font-size: 15px;
+    }
+
+    .field-validation-error {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+    }
+
+        .field-validation-error::before {
+            content: "\f056";
+        }
+</style>
 @using (Html.BeginForm(FormMethod.Post)) {
     <div class="list-group-item list-group-item-warning" id="reward">
         <p><a href="#" class="pull-right"><span class="fa fa-question-circle"></span>为什么需要邀请</a></p>
         <div style="clear:both">
             <label><b>邀请人：（*必填，没有邀请人）</b></label>
-            @Html.TextBoxFor(m => m.InvitedByUserName, new { @class = "alert form-control" ,placeholder = "他的用户名，模糊查询只能从头开始名" })
+            @Html.TextBoxFor(m => m.InvitedByUserName, new { @class = "alert form-control", placeholder = "他的用户名，模糊查询只能从头开始名" })
+            @Html.ValidationMessageFor(m => m.InvitedByUserName)<br />
             <label><b>邀请码：（*必填）</b></label><br />
-            @Html.TextBoxFor(m=>m.InviteByCode, new { @class = "alert form-control", placeholder = "4位数字" })
-            <span asp-validation-for="NewUser.InvitedBy.InviteCode"></span>
+            @Html.TextBoxFor(m => m.InviteByCode, new { @class = "alert form-control", placeholder = "4位数字" })
+            @Html.ValidationMessageFor(m => m.InviteByCode)
+
         </div>
     </div>
     <div style="margin-top:20px">
         <div>
             <label><b>用户名：（*必填）</b></label><br />
-            @Html.TextBoxFor(m=>m.Name,new { @class = "alert alert-primary form-control", placeholder = "登录用户名，可修改，不能重复" })
-            <span asp-validation-for="NewUser.Name"></span>
+            @Html.TextBoxFor(m => m.Name, new { @class = "alert alert-primary form-control", placeholder = "登录用户名，可修改，不能重复" })
+            @Html.ValidationMessageFor(m => m.Name)
         </div>
         <div>
             <label><b>密码：（*必填）</b></label><br />
-            @Html.PasswordFor(m=>m.Password,new { @class = "alert alert-primary form-control", role = "alert" ,placeholder = "不少于4个字符" })
-            <span asp-validation-for="NewUser.Password"></span>
+            @Html.PasswordFor(m => m.Password, new { @class = "alert alert-primary form-control", role = "alert", placeholder = "不少于4个字符" })
+            @Html.ValidationMessageFor(m => m.Password)
         </div>
         <div>
             <label><b>验证密码：（*必填）</b></label><br />
