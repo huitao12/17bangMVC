@@ -6,7 +6,7 @@ using System.Web;
 
 namespace _17bangMVC.Models
 {
-    public class RegisterModel
+    public class LogModel
     {
         [Required(ErrorMessage = "*用户名不能为空")]
         public string Name { get; set; }
@@ -15,11 +15,6 @@ namespace _17bangMVC.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Required(ErrorMessage = "*邀请人不能为空")]
-        public string InvitedByUserName { get; set; }
-
-        [StringLength(4, MinimumLength = 4, ErrorMessage = "*邀请码只能是4位数字")]
-        [Required(ErrorMessage = "*邀请码不能为空")]
-        public string InviteByCode { get; set; }
+        public  bool Remember { get; set; }
     }
 }

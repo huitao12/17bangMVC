@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _17bangMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,12 @@ namespace _17bangMVC.Controllers
         // GET: Log
         public ActionResult On()
         {
-            return View();
+            LogModel model = new LogModel
+            {
+                Name = "哈哈",
+                Password = "1212"
+            };
+            return View(model);
         }
     }
 }

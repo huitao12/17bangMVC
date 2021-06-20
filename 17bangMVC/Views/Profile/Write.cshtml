@@ -1,0 +1,83 @@
+﻿@model _17bangMVC.Models.ProfileModel
+@{
+    ViewData["Title"] = "个人资料";
+
+    int[] months = new int[12];
+    for (int i = 0; i < 12; i++)
+    {
+        months[i] = i + 1;
+    }
+}
+
+<main class="container" style="margin-top:60px">
+    <div id="notification" class="container">
+        <span class="fa fa-calendar"></span>
+        文章的评论已截屏保存，飞哥加油被涛咆哮赞，获得帮帮点 奖励2点
+        <a href="723.html" style="float:right; color:#337ab7"><span class=" fa fa-hand-o-right "></span>全部消息</a>
+    </div>
+    <div>
+        <p style="font-size:45px;padding:10px"><span class="fa fa-user-circle-o"></span>个人资料</></p><hr />
+    </div>
+    <article>
+
+        <div style="margin-top:55px" class="row input-group">
+            <div class="col-md-7 input-group-prepend">
+                @using (Html.BeginForm())
+                {
+                    <div class="form-group">
+                        <p style="font-weight:900">头像：（* 仅限jpg/png/gif）</p>
+                        <input type="text" placeholder="页面提交时上传文件" />
+                        <input type="file" value="浏览" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label style="font-weight:900">性别：</label>
+                        <label>
+                            @Html.RadioButtonFor(m => m.IsMale, true) 男
+                        </label>
+                        <label>
+                            @Html.RadioButtonFor(m => m.IsMale, false, new { @checked = string.Empty }) 女
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label style="font-weight:900">生日：</label><br />
+                        <div class="input-group ">
+                            @Html.DropDownListFor(m => m.BirthYears, new SelectList(Model.BirthYears, "Id", "Year"),"---", new { @class = "form-control" })
+                            <span class="input-group-text" id="basic-addon2">年</span>
+                            @Html.DropDownListFor(m => m.BirthMonth, new SelectList(months), new { @class = "form-control" })
+                            <span class="input-group-text" id="basic-addon2">月</span>
+                            @Html.DropDownListFor(m => m.Constellations, new SelectList(Model.Constellations, "Id", "Content"),"---", new { @class = "form-control" })
+                            <span class="input-group-text" id="basic-addon2">星座</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label style="font-weight:900">关键字：（* 使用空格分隔）</label><br />
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">--1级--</span>
+                            </div>
+                            <select asp-for="StairKeyword" asp-items="Model.AvailableStairKeywords"></select>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">--2级--</span>
+                            </div>
+                            <select asp-for="SecondKeyword" asp-items="Model.AvailableSecondKeywords"></select>
+                            <input type="text" class="form-control" placeholder="自定义关机键，使用空格分隔">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>自我介绍：</label><br />
+                        <textarea asp-for="NewUser.Introduction" class="form-control" style="width:486px;height:150px">简单的介绍一下自己吧，不超过255字</textarea><br />
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="提交">
+                }
+            </div>
+            <aside class="col-md-5">
+                <p class="text-info" style="font-size:30px;"><span class="fa fa-question-circle"></span>说明</p>
+                <ol>
+                    <li style="margin-bottom:10px">头像仅接受jpg/png/gif格式，大小不超过256KB。</li>
+                    <li style="margin-bottom:10px">头像图片的建议宽度为300像素左右，过宽或过窄都有可能失真。</li>
+                    <li style="margin-bottom:10px">自我介绍的字数不要超过255字。</li>
+                </ol>
+            </aside>
+        </div>
+    </article>
+</main>

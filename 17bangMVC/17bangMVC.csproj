@@ -127,10 +127,13 @@
     <Compile Include="Controllers\LogController.cs" />
     <Compile Include="Controllers\MoneyTradeController.cs" />
     <Compile Include="Controllers\PlanController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\LogModel.cs" />
+    <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -225,6 +228,7 @@
     <Content Include="Views\Shared\Layout\_Dual.cshtml" />
     <Content Include="Views\Article\Single.cshtml" />
     <Content Include="Views\Log\On.cshtml" />
+    <Content Include="Views\Profile\Write.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
