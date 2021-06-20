@@ -12,6 +12,11 @@ namespace _17bangMVC.Controllers
         // GET: Register
         public ActionResult Home()
         {
+            if (TempData["e"]!=null)
+            {
+                ModelState.Merge(TempData["e"] as ModelStateDictionary);
+            }
+
             RegisterModel model = new RegisterModel
             {
                 Name = "下来"
@@ -23,7 +28,8 @@ namespace _17bangMVC.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                TempData["e"] = ModelState;
+                return RedirectToAction(nameof(Home));
             }
             return View();
         }

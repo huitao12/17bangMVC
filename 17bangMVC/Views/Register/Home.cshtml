@@ -51,8 +51,8 @@
         </div>
         <div>
             <label><b>验证密码：（*必填）</b></label><br />
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "和密码相同" })
-            <span asp-validation-for="ConfirmPassword"></span>
+            @Html.PasswordFor(m => m.ComfirmPassword, new { @class = "form-control", placeholder = "和密码相同" })
+            @Html.ValidationMessageFor(m => m.ComfirmPassword)
         </div>
         <div style="margin-top:20px">
             <label><b>验证码：（*必填）</b></label><br />

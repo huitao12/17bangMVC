@@ -12,6 +12,11 @@ namespace _17bangMVC.Controllers
         // GET: Log
         public ActionResult On()
         {
+            if (TempData["e"] != null)
+            {
+                ModelState.Merge(TempData["e"] as ModelStateDictionary);
+            }
+
             LogModel model = new LogModel
             {
                 Name = "哈哈",
@@ -25,8 +30,8 @@ namespace _17bangMVC.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
-
+                TempData["e"] = ModelState;
+                return RedirectToAction(nameof(On));
             }
             return View();
         }
