@@ -24,10 +24,12 @@
             <div class="col-md-7 input-group-prepend">
                 @using (Html.BeginForm())
                 {
-                    <div class="form-group">
-                        <p style="font-weight:900">头像：（* 仅限jpg/png/gif）</p>
-                        <input type="text" placeholder="页面提交时上传文件" />
-                        <input type="file" value="浏览" /><br />
+                    <p style="font-weight:900">头像：（* 仅限jpg/png/gif）</p>
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                            <label class="custom-file-label" for="inputGroupFile01">页面提交时上传文件</label>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label style="font-weight:900">性别：</label>
@@ -41,11 +43,11 @@
                     <div class="form-group">
                         <label style="font-weight:900">生日：</label><br />
                         <div class="input-group ">
-                            @Html.DropDownListFor(m => m.BirthYears, new SelectList(Model.BirthYears, "Id", "Year"),"---", new { @class = "form-control" })
+                            @Html.DropDownListFor(m => m.BirthYears, new SelectList(Model.BirthYears, "Id", "Year"), "---", new { @class = "form-control" })
                             <span class="input-group-text" id="basic-addon2">年</span>
                             @Html.DropDownListFor(m => m.BirthMonth, new SelectList(months), new { @class = "form-control" })
                             <span class="input-group-text" id="basic-addon2">月</span>
-                            @Html.DropDownListFor(m => m.Constellations, new SelectList(Model.Constellations, "Id", "Content"),"---", new { @class = "form-control" })
+                            @Html.DropDownListFor(m => m.Constellations, new SelectList(Model.Constellations, "Id", "Content"), "---", new { @class = "form-control" })
                             <span class="input-group-text" id="basic-addon2">星座</span>
                         </div>
                     </div>
@@ -64,8 +66,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>自我介绍：</label><br />
-                        <textarea asp-for="NewUser.Introduction" class="form-control" style="width:486px;height:150px">简单的介绍一下自己吧，不超过255字</textarea><br />
+                        <label><b>自我介绍：</b></label><br />
+                        @Html.TextArea("SelfIntroduction", new { @class = "form-control", style = "width:486px;height:150px", placeholder = "简单的介绍一下自己吧，不超过255字" })
                     </div>
                     <input class="btn btn-primary" type="submit" value="提交">
                 }
