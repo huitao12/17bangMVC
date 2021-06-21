@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace BLL.Entities
 {
-    class Article
+    public class Article : BaseEntity
     {
+        public User Author { get; set; }
+        public string Body { get; set; }
+        public string Title { get; set; }
+
     }
 }

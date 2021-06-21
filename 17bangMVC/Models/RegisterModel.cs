@@ -17,7 +17,7 @@ namespace _17bangMVC.Models
         public string Password { get; set; }
 
         [Required(ErrorMessage = "*邀请人不能为空")]
-        public string InvitedByUserName { get; set; }
+        public string InvitedBy{ get; set; }
 
         [StringLength(4, MinimumLength = 4, ErrorMessage = "*邀请码只能是4位数字")]
         [Required(ErrorMessage = "*邀请码不能为空")]
@@ -26,5 +26,9 @@ namespace _17bangMVC.Models
         [StringLength(25, ErrorMessage = "* 确认密码的长度不能小于4,大于20", MinimumLength = 1)]
         [Required(ErrorMessage = "* 确认密码不能为空")]
         public string ComfirmPassword { get; set; }
+
+        [StringLength(4, ErrorMessage = "验证码的长度只能为4", MinimumLength = 4)]
+        [Required(ErrorMessage = "* 验证码不能为空")]
+        public string Captcha { get; set; }
     }
 }

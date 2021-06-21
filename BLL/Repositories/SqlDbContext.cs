@@ -8,12 +8,16 @@ using System.Threading.Tasks;
 
 namespace BLL.Repositories
 {
-    class SqlDbContext : DbContext
+    public class SqlDbContext<T> : DbContext where T :BaseEntity
     {
         public SqlDbContext() : base("77bang")
         {
 
         }
-        public DbSet<User> Users { get; set; }
+        public DbSet<T> Entities { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

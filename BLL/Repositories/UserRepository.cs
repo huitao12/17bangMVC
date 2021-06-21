@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Repositories
 {
-    public class UserRepository
+    public class UserRepository : Repository<User>
     {
         public User Find(int id)
         {
@@ -15,13 +15,7 @@ namespace BLL.Repositories
         }
         public User GetByName(string name)
         {
-            SqlDbContext context = new SqlDbContext();
-            return context.Users.Where(r => r.Name == name).SingleOrDefault();
-        }
-
-        public int Save(User student)
-        {
-            throw new NotImplementedException();
+            return context.Entities.Where(r => r.Name == name).SingleOrDefault();
         }
     }
 }

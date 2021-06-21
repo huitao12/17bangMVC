@@ -11,21 +11,26 @@ namespace _17bangMVC.Filters
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             ModelStateDictionary modelState = ((Controller)filterContext.Controller).ModelState;
+
+            if (filterContext.IsChildAction)
+            {
+
+            }
             if (filterContext.HttpContext.Request.HttpMethod == "POST")
             {
                 if (!modelState.IsValid)
                 {
-                    //filterContext.Controller.TempData[Keys.ErrorInModel] = modelState;
+                    filterContext.Controller.TempData[Keys.ErrorInModel] = modelState;
                     filterContext.Result = new RedirectResult(filterContext.HttpContext.Request.Url.PathAndQuery);//重定向
                 }
             }
             else if (filterContext.HttpContext.Request.HttpMethod == "GET")
             {
-                //ModelStateDictionary errors = filterContext.Controller.TempData[kyes.ErrorInModel] as ModelStateDictionary;
-                //if (errors != null)
-                //{
-                //    modelState.Merge(errors);
-                //}
+                ModelStateDictionary errors = filterContext.Controller.TempData[Keys.ErrorInModel] as ModelStateDictionary;
+                if (errors != null)
+                {
+                    modelState.Merge(errors);
+                }
             }
             else
             {
