@@ -22,6 +22,11 @@ namespace _17bangMVC.Controllers
                 Name = "哈哈",
                 Password = "1212"
             };
+
+            HttpCookie cookie = new HttpCookie("LogOn");
+            cookie.Expires = DateTime.Now.AddDays(14);
+            Response.Cookies.Add(cookie);
+
             return View(model);
         }
 
