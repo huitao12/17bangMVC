@@ -230,6 +230,7 @@
     <Content Include="Views\Article\Single.cshtml" />
     <Content Include="Views\Log\On.cshtml" />
     <Content Include="Views\Profile\Write.cshtml" />
+    <Content Include="Views\Shared\_PlanNewPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

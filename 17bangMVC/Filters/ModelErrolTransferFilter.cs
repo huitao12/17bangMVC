@@ -22,10 +22,10 @@ namespace _17bangMVC.Filters
             else if (filterContext.HttpContext.Request.HttpMethod == "GET")
             {
                 //ModelStateDictionary errors = filterContext.Controller.TempData[kyes.ErrorInModel] as ModelStateDictionary;
-                if (errors != null)
-                {
-                    modelState.Merge(errors);
-                }
+                //if (errors != null)
+                //{
+                //    modelState.Merge(errors);
+                //}
             }
             else
             {
