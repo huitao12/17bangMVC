@@ -1,4 +1,6 @@
 ﻿using _17bangMVC.Models;
+using BLL.Entities;
+using BLL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,19 +11,20 @@ namespace _17bangMVC.Controllers
 {
     public class RegisterController : Controller
     {
+        private StudentRepository  studentRepository;
+        public RegisterController()
+        {
+            studentRepository = new StudentRepository();
+        }
         // GET: Register
         public ActionResult Home()
         {
-            if (TempData["e"]!=null)
+            if (TempData["e"] != null)
             {
                 ModelState.Merge(TempData["e"] as ModelStateDictionary);
             }
 
-            RegisterModel model = new RegisterModel
-            {
-                Name = "下来"
-            };
-            return View(model);
+            return View();
         }
         [HttpPost]
         public ActionResult Home(RegisterModel model)
@@ -31,6 +34,19 @@ namespace _17bangMVC.Controllers
                 TempData["e"] = ModelState;
                 return RedirectToAction(nameof(Home));
             }
+            //检查用户名是否重复
+            if (studentRepository.GetByName(model.Name) != null)
+            {
+                ModelState.AddModelError("Name", "用户名不能重复");
+            }
+            Student student = new Student
+            {
+                Name = model.Name,
+                Password = model.Password
+            };
+            student.Register();
+            int id=studentRepository.Save(student);
+
             return View();
         }
     }
