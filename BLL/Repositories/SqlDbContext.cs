@@ -10,10 +10,10 @@ namespace BLL.Repositories
 {
     class SqlDbContext : DbContext
     {
-        public SqlDbContext():base("77bang")
+        public SqlDbContext() : base("77bang")
         {
 
         }
-        public DbSet<Student>  Students { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

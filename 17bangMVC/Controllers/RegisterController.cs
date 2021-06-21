@@ -11,10 +11,10 @@ namespace _17bangMVC.Controllers
 {
     public class RegisterController : Controller
     {
-        private StudentRepository  studentRepository;
+        private UserRepository   userRepository;
         public RegisterController()
         {
-            studentRepository = new StudentRepository();
+            userRepository = new UserRepository();
         }
         // GET: Register
         public ActionResult Home()
@@ -35,17 +35,17 @@ namespace _17bangMVC.Controllers
                 return RedirectToAction(nameof(Home));
             }
             //检查用户名是否重复
-            if (studentRepository.GetByName(model.Name) != null)
+            if (userRepository.GetByName(model.Name) != null)
             {
                 ModelState.AddModelError("Name", "用户名不能重复");
             }
-            Student student = new Student
+            User student = new User
             {
                 Name = model.Name,
                 Password = model.Password
             };
             student.Register();
-            int id=studentRepository.Save(student);
+            int id= userRepository.Save(student);
 
             return View();
         }
