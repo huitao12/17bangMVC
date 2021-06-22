@@ -13,5 +13,15 @@ namespace _17bangMVC.Controllers
         {
             return View();
         }
+
+        //public ActionResult New(int id)
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        public ActionResult New()
+        {
+            return View();
+        }
     }
 }

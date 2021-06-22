@@ -141,6 +141,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Keys.cs" />
+    <Compile Include="Models\Article\NewModel.cs" />
+    <Compile Include="Models\Article\SingleModel.cs" />
     <Compile Include="Models\LogModel.cs" />
     <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
@@ -239,9 +241,12 @@
     <Content Include="Views\Log\On.cshtml" />
     <Content Include="Views\Profile\Write.cshtml" />
     <Content Include="Views\Shared\_PlanNewPartial.cshtml" />
+    <Content Include="Views\Article\New.cshtml" />
+    <Content Include="Views\Shared\_ArticleNewPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Single\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
