@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "BLL\Entities\En
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "BLL\Repositories\Repositories.csproj", "{EE53408A-7813-4815-8EBB-FAE4F47544F7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SRV", "SRV", "{05349228-88B4-42DC-94C7-0CB1EB213007}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProdService", "ProdService\ProdService.csproj", "{D2316250-BA17-4DEE-8ED2-732DC555B849}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModel", "ViewModel\ViewModel.csproj", "{936E37FC-46EE-46B4-86D5-481124030E1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +41,14 @@ Global
 		{EE53408A-7813-4815-8EBB-FAE4F47544F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE53408A-7813-4815-8EBB-FAE4F47544F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE53408A-7813-4815-8EBB-FAE4F47544F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2316250-BA17-4DEE-8ED2-732DC555B849}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2316250-BA17-4DEE-8ED2-732DC555B849}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2316250-BA17-4DEE-8ED2-732DC555B849}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2316250-BA17-4DEE-8ED2-732DC555B849}.Release|Any CPU.Build.0 = Release|Any CPU
+		{936E37FC-46EE-46B4-86D5-481124030E1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{936E37FC-46EE-46B4-86D5-481124030E1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{936E37FC-46EE-46B4-86D5-481124030E1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{936E37FC-46EE-46B4-86D5-481124030E1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +56,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F93D3850-5318-44E2-B845-E87E6188FEA0} = {B19D65F4-D8FE-4CAB-A746-912BB104CFDD}
 		{EE53408A-7813-4815-8EBB-FAE4F47544F7} = {B19D65F4-D8FE-4CAB-A746-912BB104CFDD}
+		{D2316250-BA17-4DEE-8ED2-732DC555B849} = {05349228-88B4-42DC-94C7-0CB1EB213007}
+		{936E37FC-46EE-46B4-86D5-481124030E1C} = {05349228-88B4-42DC-94C7-0CB1EB213007}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2829DAF9-F5F7-4E48-858F-7A633E14BE3A}

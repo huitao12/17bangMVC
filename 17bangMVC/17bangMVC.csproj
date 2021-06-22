@@ -141,11 +141,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Keys.cs" />
-    <Compile Include="Models\Article\NewModel.cs" />
-    <Compile Include="Models\Article\SingleModel.cs" />
-    <Compile Include="Models\LogModel.cs" />
-    <Compile Include="Models\ProfileModel.cs" />
-    <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -260,13 +255,13 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BLL\Entities\Entities.csproj">
-      <Project>{F93D3850-5318-44E2-B845-E87E6188FEA0}</Project>
-      <Name>Entities</Name>
+    <ProjectReference Include="..\ProdService\ProdService.csproj">
+      <Project>{d2316250-ba17-4dee-8ed2-732dc555b849}</Project>
+      <Name>ProdService</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BLL\Repositories\Repositories.csproj">
-      <Project>{EE53408A-7813-4815-8EBB-FAE4F47544F7}</Project>
-      <Name>Repositories</Name>
+    <ProjectReference Include="..\ViewModel\ViewModel.csproj">
+      <Project>{936e37fc-46ee-46b4-86d5-481124030e1c}</Project>
+      <Name>ViewModel</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -1,6 +1,7 @@
 ﻿using _17bangMVC.Models.Article;
 using BLL.Entities;
 using BLL.Repositories;
+using ProdService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +12,10 @@ namespace _17bangMVC.Controllers
 {
     public class ArticleController : Controller
     {
-        private ArticleRepository articleRepository;
-        private UserRepository userRepository;
+        private UserService userService;
         public ArticleController()
         {
-            SqlDbContext context = new SqlDbContext();
-            articleRepository = new ArticleRepository(context);
-            userRepository = new UserRepository(context);
-
+            userService = new UserService();
         }
         // GET: Article
         public ActionResult Single()
@@ -30,21 +27,12 @@ namespace _17bangMVC.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult New(NewModel model)
         {
             int currentUserId = 1;
-            Article article = new Article
-            {
-                Title = model.Title,
-                Body = model.Body,
-            };
-
-            User author = userRepository.Find(currentUserId);
-
-            article.Author = author;
-            articleRepository.Save(article);
-
+            userService.Publish(model, currentUserId);
             return View();
         }
     }
