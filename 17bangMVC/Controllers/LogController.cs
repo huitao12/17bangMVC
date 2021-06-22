@@ -1,4 +1,5 @@
 ﻿using _17bangMVC.Models;
+using BLL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,12 @@ namespace _17bangMVC.Controllers
 {
     public class LogController : Controller
     {
+        private UserRepository userRepository;
+        public LogController()
+        {
+            userRepository = new UserRepository();
+        }
+
         // GET: Log
         public ActionResult On()
         {
@@ -17,26 +24,32 @@ namespace _17bangMVC.Controllers
                 ModelState.Merge(TempData["e"] as ModelStateDictionary);
             }
 
-            //LogModel model = new LogModel
-            //{
-            //    Name = "哈哈",
-            //    Password = "1212"
-            //};
 
             HttpCookie cookie = new HttpCookie("LogOn");
             cookie.Expires = DateTime.Now.AddDays(14);
             Response.Cookies.Add(cookie);
 
-            return View(/*model*/);
+            return View();
         }
 
         [HttpPost]
-        public ActionResult On(int? id ,string name, LogModel model)
+        public ActionResult On(LogModel model)
         {
             if (!ModelState.IsValid)
             {
                 TempData["e"] = ModelState;
                 return RedirectToAction(nameof(On));
+            }
+
+            if (userRepository.GetByName(model.Name).ToString() != model.Name)
+            {
+                ModelState.AddModelError(nameof(model.Name), "用户名不存在");
+                return View();
+            }
+
+            if (userRepository.GetByName(model.Password).ToString() != model.Password)
+            {
+                ModelState.AddModelError(nameof(model.Password), "用户名或密码输入错误");
             }
             return View();
         }

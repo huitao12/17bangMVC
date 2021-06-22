@@ -51,8 +51,8 @@ namespace _17bangMVC.Controllers
             //检查用户名是否重复
             if (userRepository.GetByName(model.Name) != null)
             {
-                ModelState.AddModelError("Name", "用户名不能重复");
-                return RedirectToAction(nameof(Home));
+                ModelState.AddModelError(nameof(model.Name), "用户名不能重复");
+                //return RedirectToAction(nameof(Home));
             }
 
             if (model.ComfirmPassword != model.Password)
