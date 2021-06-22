@@ -13,7 +13,8 @@ namespace _17bangMVC.Controllers
         private UserRepository userRepository;
         public LogController()
         {
-            userRepository = new UserRepository();
+            SqlDbContext context = new SqlDbContext();
+            userRepository = new UserRepository(context);
         }
 
         // GET: Log

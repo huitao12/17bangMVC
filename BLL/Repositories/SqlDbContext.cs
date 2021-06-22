@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace BLL.Repositories
 {
-    public class SqlDbContext<T> : SqlDbContext where T : BaseEntity
-    {
-        public DbSet<T> Entities { get; set; }
+    //public class SqlDbContext<T> : SqlDbContext where T : BaseEntity
+    //{
+    //    public DbSet<T> Entities { get; set; }
 
-    }
+    //}
     public class SqlDbContext : DbContext
     {
         public SqlDbContext() : base("77bang")

@@ -15,7 +15,8 @@ namespace _17bangMVC.Controllers
         private UserRepository userRepository;
         public RegisterController()
         {
-            userRepository = new UserRepository();
+            SqlDbContext context = new SqlDbContext();
+            userRepository = new UserRepository(context);
         }
         // GET: Register
         [ModelErrolTransferFilter]
@@ -40,7 +41,7 @@ namespace _17bangMVC.Controllers
 
             if (userRepository.GetByName(model.InvitedBy) == null)
             {
-                ModelState.AddModelError(nameof(model.InvitedBy), "邀请了不存在");
+                ModelState.AddModelError(nameof(model.InvitedBy), "邀请人不存在");
             }
 
             if (userRepository.GetByName(model.InviteByCode) == null)
