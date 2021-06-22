@@ -30,7 +30,7 @@ namespace _17bangMVC.Filters
                 if (errors != null)
                 {
                     modelState.Merge(errors);
-                }
+                }//else nothing
             }
             else
             {

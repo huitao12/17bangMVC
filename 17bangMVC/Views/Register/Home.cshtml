@@ -56,7 +56,9 @@
         </div>
         <div style="margin-top:20px">
             <label><b>验证码：（*必填）</b></label><br />
-            <input type="button" class="btn btn-outline-secondary " style="width:100px" />点击输入框显示
+            @Html.TextBoxFor(m => m.Captcha, new { @class = "form-control", style = "width:100px" })
+            @Html.ValidationMessageFor(m => m.Captcha)
+            点击输入框显示
         </div>
     </div>
     <div style="margin-top:15px">

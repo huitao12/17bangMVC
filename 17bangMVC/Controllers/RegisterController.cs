@@ -12,7 +12,7 @@ namespace _17bangMVC.Controllers
 {
     public class RegisterController : Controller
     {
-        private UserRepository   userRepository;
+        private UserRepository userRepository;
         public RegisterController()
         {
             userRepository = new UserRepository();
@@ -33,22 +33,41 @@ namespace _17bangMVC.Controllers
         {
             if (!ModelState.IsValid)
             {
+                //return View(model);
                 TempData["e"] = ModelState;
                 return RedirectToAction(nameof(Home));
             }
+
+            if (userRepository.GetByName(model.InvitedBy) == null)
+            {
+                ModelState.AddModelError(nameof(model.InvitedBy), "邀请了不存在");
+            }
+
+            if (userRepository.GetByName(model.InviteByCode) == null)
+            {
+                ModelState.AddModelError(nameof(model.InviteByCode), "邀请人得邀请码错误");
+            }
+
             //检查用户名是否重复
             if (userRepository.GetByName(model.Name) != null)
             {
                 ModelState.AddModelError("Name", "用户名不能重复");
                 return RedirectToAction(nameof(Home));
             }
-            User student = new User
+
+            if (model.ComfirmPassword != model.Password)
+            {
+                ModelState.AddModelError(nameof(model.ComfirmPassword), "两次输入的密码不一致");
+            }
+
+            User user = new User
             {
                 Name = model.Name,
                 Password = model.Password
             };
-            student.Register();
-            int id = userRepository.Save(student);
+
+            user.Register();
+            int id = userRepository.Save(user);
 
             return View();
         }

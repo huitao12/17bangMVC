@@ -12,13 +12,13 @@ namespace BLL.Repositories
         protected SqlDbContext<T> context;
         public Repository()
         {
-            context = new SqlDbContext<T>();
+            //context = new SqlDbContext<T>();
         }
         public int Save(T entity)
         {
             context.Entities.Add(entity);
+            context.SaveChanges();
             return entity.Id;
-            throw new NotImplementedException();
         }
         public void Remove(T entiry)
         {
